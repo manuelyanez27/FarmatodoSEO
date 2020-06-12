@@ -1,0 +1,39 @@
+.product-container {
+    border-style: solid;
+    margin: 40px;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.product-quantity {
+    width: 80px;
+    margin: 20px;
+    text-align: center;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 40px;
+    color: #418fde;
+    font-weight: 500s;
+}
+  
+span {
+    font-size: 20px;
+}
+
+button {
+    width: 200px;
+    height: 61px;
+    background-color: #418fde;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+}

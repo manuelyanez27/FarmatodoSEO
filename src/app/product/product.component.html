@@ -1,53 +1,152 @@
-<style>
-  .titulo {
-    text-align: center;
-    font-size: 40px;
-    color: #418fde;
-    font-weight: 500s;
-  }
-  
-  span {
-    font-size: 20px;
-  }
-  
-  button {
-    width: 200px;
-    height: 61px;
-    background-color: #418fde;
-    color: #ffffff;
-    border-radius: 4px;
-    font-size: 14px;
-    outline: none;
-    border: none;
-  }
-</style>
-<div class="container bg-light my-5">
-  <div class="row">
-    <div class="col-12 titulo">
-      Dolex Gripa 12 Tabs Congestión nasal, Dolor cabeza y fiebre<br>
-      <br>
-      <img src="https://lh3.googleusercontent.com/lS8_-MATUo82zYaBgwmZ_1KSSDEOlRDpB-2EmzZQlgw5YaVvSSjK9_kJIYePzCewf2G1fyQ54v9_zNsq6VTFOxWffK-_OkzIVZE9">
-      <img src="https://lh3.googleusercontent.com/zq7FAApZmK-tGLnmcaQzlE3Wk-3bRk2wtZ-WmxUo_dcg-xWqj_wF4s0Baz7ATSrXD8QviRvKimPBb2sW-x7C5n0CcaDAqOxSOmV7">
-      <br>
-      <br>
-      <span>
-        x12Tab.GSK Acetaminofén Fenilefrina Clorfenamina
-      </span>
-      <br>
-      <span>
-        precio: $11.200
-      </span>
-      <br>
-      <br>
-      <button (click)="quantity = quantity + 1 ">Aumentar</button> {{quantity}} <button (click)="quantity = quantity - 1 ">Disminuir</button>
-      <br><br>
-      <button (click)="showText = true">Comprar</button>
-      <br>
-      <span class="text-success" *ngIf="showText">
-        Compra exitosa
-      </span>
-      <br>
-      <br>
+<!-- <div class="container bg-light my-5">
+  <div class="product-container">
+    <div class="col-12 titulo row">
+      <h1>
+        Dolex Forte 8 Tabs Congestión nasal, Dolor cabeza y fiebre
+      </h1>
     </div>
+    <div>
+      <div class="row product">
+        <br>
+        <br>
+        <img alt="dolex forte 8 tabletas" src="https://lh3.googleusercontent.com/lS8_-MATUo82zYaBgwmZ_1KSSDEOlRDpB-2EmzZQlgw5YaVvSSjK9_kJIYePzCewf2G1fyQ54v9_zNsq6VTFOxWffK-_OkzIVZE9">
+        <br>
+        <br>
+      </div>
+      <div class="row product">
+        <span>
+          x8Tab.GSK Acetaminofén Fenilefrina Clorfenamina
+        </span>
+        <br>
+      </div>
+      <div class="row product">
+        <span>
+          precio: $11.200
+        </span>
+      <br>
+      <br>
+      </div>
+      <div class="row product">
+        <button (click)="quantity1 = increaseQuantity(quantity1)">Aumentar</button> 
+        <span class="product-quantity">{{quantity1}}</span>
+        <button (click)="quantity1 = decreaseQuantity(quantity1)">Disminuir</button>
+        <br><br>
+      </div>
+      <div class="row product">
+        <button (click)="showText1 = purchase('dolex forte')">Comprar</button>
+        <br>
+      </div>
+      <div class="row product">
+        <span class="text-success" *ngIf="showText1">
+          {{purchaseMessage}}
+        </span>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="product-container">
+    <div class="col-12 titulo row">
+      <h1>
+        Dolex Gripa 12 Tabs Congestión nasal, Dolor cabeza y fiebre
+      </h1>
+    </div>
+    <div>
+      <div class="row product">
+        <br>
+        <br>
+        <img alt="dolex gripa 12 tabletas" src="https://lh3.googleusercontent.com/zq7FAApZmK-tGLnmcaQzlE3Wk-3bRk2wtZ-WmxUo_dcg-xWqj_wF4s0Baz7ATSrXD8QviRvKimPBb2sW-x7C5n0CcaDAqOxSOmV7">
+        <br>
+        <br>
+      </div>
+      <div class="row product">
+        <span>
+          x12Tab.GSK Acetaminofén Fenilefrina Clorfenamina
+        </span>
+        <br>
+      </div>
+      <div class="row product">
+        <span>
+          precio: $11.200
+        </span>
+      <br>
+      <br>
+      </div>
+      <div class="row product">
+        <button (click)="quantity2 = increaseQuantity(quantity2)">Aumentar</button> 
+        <span class="product-quantity">{{quantity2}}</span>
+        <button (click)="quantity2 = decreaseQuantity(quantity2)">Disminuir</button>
+        <br><br>
+      </div>
+      <div class="row product">
+        <button (click)="showText2 = purchase('dolex gripa')">Comprar</button>
+        <br>
+      </div>
+      <div class="row product">
+        <span class="text-success" *ngIf="showText2">
+          {{purchaseMessage}}
+        </span>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="row product">
+    <a href="/"><button>Ir al Inicio</button></a>
+  </div>
+</div> -->
+
+<div class="container bg-light my-5">
+  <div class="product-container" *ngFor='let productItem of productList'>
+    <div class="col-12 titulo row">
+      <h1>
+        {{productItem.title}}
+      </h1>
+    </div>
+    <div>
+      <div class="row product">
+        <br>
+        <br>
+        <img [alt]='productItem.altTextImage' [src]='productItem.image'>
+        <br>
+        <br>
+      </div>
+      <div class="row product">
+        <span>
+          {{productItem.description}}
+        </span>
+        <br>
+      </div>
+      <div class="row product">
+        <span>
+          {{productItem.price}}
+        </span>
+      <br>
+      <br>
+      </div>
+      <div class="row product">
+        <button (click)="productItem.quantity = increaseQuantity(productItem.quantity)">Aumentar</button> 
+        <span class="product-quantity">{{productItem.quantity}}</span>
+        <button (click)="productItem.quantity = decreaseQuantity(productItem.quantity)">Disminuir</button>
+        <br><br>
+      </div>
+      <div class="row product">
+        <button (click)="productItem.showText = purchase(productItem.id)">
+          Comprar
+        </button>
+        <br>
+      </div>
+      <div class="row product">
+        <span class="text-success" *ngIf="productItem.showText">
+          {{purchaseMessage}}
+        </span>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="row product">
+    <a href="/"><button>Ir al Inicio</button></a>
   </div>
 </div>
